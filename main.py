@@ -19,3 +19,21 @@ class Cliente(BaseModel):
     nombre: str
     email: str
     descripcion: str
+    class Cliente(BaseModel):
+    id: int
+    nombre: str
+    email: str
+    descripcion: str
+
+
+class Factura(BaseModel):
+    id: int
+    cliente_id: int
+    vrtotal: float
+
+
+class Transaccion(BaseModel):
+    id: int
+    vr_unitario: float
+    cantidad: int
+    factura_id: int
