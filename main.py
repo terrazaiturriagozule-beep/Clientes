@@ -41,3 +41,9 @@ class Transaccion(BaseModel):
     @mi_app.get("/clientes")
     def listar_clientes():
      return clientes
+    
+    @mi_app.get("/clientes/{id}")
+    def obtener_cliente(id: int):
+     for cliente in clientes:
+        if cliente.id == id:
+            return cliente
