@@ -106,3 +106,14 @@ def crear_factura(factura: Factura):
         "mensaje": "Factura creada",
         "factura": factura
     }
+@ami_pp.put("/facturas/{id}")
+def actualizar_factura(id: int, datos: Factura):
+
+    for i, factura in enumerate(facturas):
+        if factura.id == id:
+            facturas[i] = datos
+
+            return {
+                "mensaje": "Factura actualizada",
+                "factura": datos
+            }
