@@ -38,6 +38,6 @@ class Transaccion(BaseModel):
     cantidad: int
     factura_id: int
 
-    @app.get("/clientes")
+    @mi_app.get("/clientes")
     def listar_clientes():
      return clientes
