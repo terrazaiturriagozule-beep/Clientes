@@ -56,3 +56,17 @@ class Transaccion(BaseModel):
         "mensaje": "Cliente creado",
         "cliente": cliente
     }
+
+    @mi_app.put("/clientes/{id}")
+    def actualizar_cliente(id: int, datos: Cliente):
+
+     for i, cliente in enumerate(clientes):
+        if cliente.id == id:
+            clientes[i] = datos
+
+            return {
+                "mensaje": "Cliente actualizado",
+                "cliente": datos
+            }
+
+    raise HTTPException(404, "Cliente no encontrado")
