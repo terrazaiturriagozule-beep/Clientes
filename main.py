@@ -47,3 +47,12 @@ class Transaccion(BaseModel):
      for cliente in clientes:
         if cliente.id == id:
             return cliente
+        
+        @mi_app.post("/clientes")
+    def crear_cliente(cliente: Cliente):
+     clientes.append(cliente)
+
+     return {
+        "mensaje": "Cliente creado",
+        "cliente": cliente
+    }
