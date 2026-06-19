@@ -74,46 +74,6 @@ class Transaccion(BaseModel):
 @mi_app.delete("/clientes/{id}")
 def eliminar_cliente(id: int):
 
-    for cliente in clientes:
-        if cliente.id == id:
-            clientes.remove(cliente)
-
-            return {
-                "mensaje": "Cliente eliminado"
-            }
-
-    raise HTTPException(404, "Cliente no encontrado")
-
-    @mi_app.get("/facturas")
-   def listar_facturas():
+  @mi_app.get("/facturas")
+  def listar_facturas():
     return facturas
-
-@mi_app.get("/facturas/{id}")
-def obtener_factura(id: int):
-
-    for factura in facturas:
-        if factura.id == id:
-            return factura
-
-    raise HTTPException(404, "Factura no encontrada")
-
-@mi_app.post("/facturas")
-def crear_factura(factura: Factura):
-
-    facturas.append(factura)
-
-    return {
-        "mensaje": "Factura creada",
-        "factura": factura
-    }
-@ami_pp.put("/facturas/{id}")
-def actualizar_factura(id: int, datos: Factura):
-
-    for i, factura in enumerate(facturas):
-        if factura.id == id:
-            facturas[i] = datos
-
-            return {
-                "mensaje": "Factura actualizada",
-                "factura": datos
-            }
